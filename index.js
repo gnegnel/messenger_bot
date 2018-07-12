@@ -14,7 +14,9 @@ bot.on('message', (payload, chat) => {
 });
 
 bot.on('attachment',(payload,chat)=>{
-  console.log(payload);
+  console.log("a", payload.message.attachments[0]);
+  console.log("b", payload.message.attachments[1]);
+  console.log("c", payload.message.attachments);
   chat.say('Me mandaste un attachment');
 });
 
