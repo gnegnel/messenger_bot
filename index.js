@@ -9,10 +9,12 @@ const bot = new BootBot({
 
 bot.on('message', (payload, chat) => {
   const text = payload.message.text;
+  console.log(payload);
   chat.say(`${text}`);
 });
 
 bot.on('attachment',(payload,chat)=>{
+  console.log(payload);
   chat.say('Me mandaste un attachment');
 });
 
