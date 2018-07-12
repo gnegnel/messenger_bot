@@ -9,7 +9,7 @@ const bot = new BootBot({
 
 bot.on('message', (payload, chat) => {
   const text = payload.message.text;
-  chat.say(`Echo: ${text}`);
+  chat.say(`${text}`);
 });
 
 bot.start(process.env.PORT || 3000);
