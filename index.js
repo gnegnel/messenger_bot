@@ -6,11 +6,18 @@ const bot = new BootBot({
   verifyToken: process.env.VERIFICATION_TOKEN,
   appSecret: '8af20da7078a094599b9c203bfd6d6db'
 });
-bot.hear('image', (payload, chat) => {
+bot.hear('Image', (payload, chat) => {
 	// Send an attachment
 	chat.say({
 		attachment: 'image',
 		url: 'https://scontent.fntr3-1.fna.fbcdn.net/v/t1.15752-9/36551449_888024924703554_4952352232956755968_n.jpg?_nc_cat=0&oh=f636f46dd921b7d5ce1764ac57fdfe8a&oe=5BA705E7'
+	});
+});
+bot.hear('video', (payload, chat) => {
+	// Send an attachment
+	chat.say({
+		attachment: 'video',
+		url: 'http://techslides.com/demos/sample-videos/small.mp4'
 	});
 });
 bot.on('message', (payload, chat) => {
