@@ -14,6 +14,7 @@ bot.on('message', (payload, chat) => {
 });
 
 bot.on('attachment',(payload,chat)=>{
+  console.log(payload);
   chat.say('Me mandaste un attachment');
 });
 
