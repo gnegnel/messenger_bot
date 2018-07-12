@@ -12,4 +12,8 @@ bot.on('message', (payload, chat) => {
   chat.say(`${text}`);
 });
 
+bot.on('attachment',(payload,chat)=>{
+  chat.say('Me mandaste un attachment');
+})
+
 bot.start(process.env.PORT || 3000);
