@@ -29,7 +29,7 @@ bot.hear(/\d\d\d\d/, (payload, chat)=> {
 
 bot.on('message', (payload, chat, data) => {
   console.log(data);
-  if !data.captured{
+  if (!data.captured){
     const text = payload.message.text;
     console.log(payload);
     chat.say(`${text}`,{typing: 1500});
