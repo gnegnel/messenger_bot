@@ -22,7 +22,7 @@ bot.hear('video', (payload, chat) => {
     typing: 1500
   });
 });
-bot.hear(\d\d\d\d, (payload, chat)=> {
+bot.hear(/\d\d\d\d/, (payload, chat)=> {
   number = parseInt(payload.message.text)
   chat.say( "Escribí " + number + " milisegundos", {typing: number});
 });
