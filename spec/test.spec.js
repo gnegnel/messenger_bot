@@ -6,9 +6,9 @@
 //
 // ================================================================================================== //
 
-describe("Global functions", () => {
-  describe("getDaysSinceLastMonday", () => {
-    it("Date is not a monday.", () => {
+describe("Utility functions", function() {
+  describe("getDaysSinceLastMonday", function() {
+    it("Date is not a monday.", function() {
       // Arrange.
       let date = new Date(2018, 6, 13); // Friday, Jul 13 2018.
       // Act.
@@ -18,7 +18,7 @@ describe("Global functions", () => {
       // Assert.
       expect(result).toBe(4);
     });
-    it("Date is a monday.", () => {
+    it("Date is a monday.", function() {
       // Arrange.
       let date = new Date(2018, 6, 9); // Monday, Jul 9 2018.
       // Act.
@@ -28,7 +28,43 @@ describe("Global functions", () => {
       // Assert.
       expect(result).toBe(0);
     });
-    it("Date is a sunday.", () => {
+    it("Date is a sunday.", function() {
+      // Arrange.
+      let date = new Date(2018, 6, 15); // Friday, Jul 13 2018.
+      // Act.
+      const result = getDaysSinceLastMonday({
+        date: date
+      });
+      // Assert.
+      expect(result).toBe(7);
+    });
+  });
+});
+
+describe("Error handling", function() {
+  describe("findType", function() {
+    it("Type is string.", function() {
+      // Arrange.
+      let string1 = "string";
+      let string1 = "中文";
+      // Act.
+      const result = getDaysSinceLastMonday({
+        date: date
+      });
+      // Assert.
+      expect(result).toBe(4);
+    });
+    it("Date is a monday.", function() {
+      // Arrange.
+      let date = new Date(2018, 6, 9); // Monday, Jul 9 2018.
+      // Act.
+      const result = getDaysSinceLastMonday({
+        date: date
+      });
+      // Assert.
+      expect(result).toBe(0);
+    });
+    it("Date is a sunday.", function() {
       // Arrange.
       let date = new Date(2018, 6, 15); // Friday, Jul 13 2018.
       // Act.
@@ -49,9 +85,9 @@ describe("Global functions", () => {
 //
 // ================================================================================================== //
 
-// describe("User functions", () => {
-//   describe("getDaysSinceLastMonday()", () => {
-//     it("Write Your Test Expectation Here", () => {
+// describe("User functions", function() {
+//   describe("getDaysSinceLastMonday()", function() {
+//     it("Write Your Test Expectation Here", function() {
 //       // Arrange.
 //       let simpleUser;
 //       // Act.
@@ -70,9 +106,9 @@ describe("Global functions", () => {
 //
 // ================================================================================================== //
 
-// describe("Game functions", () => {
-//   describe("getDaysSinceLastMonday()", () => {
-//     it("Write Your Test Expectation Here", () => {
+// describe("Game functions", function() {
+//   describe("getDaysSinceLastMonday()", function() {
+//     it("Write Your Test Expectation Here", function() {
 //       // Arrange.
 //       let bool = false;
 //       // Act.
@@ -91,9 +127,9 @@ describe("Global functions", () => {
 //
 // ================================================================================================== //
 
-// describe("Ticket functions", () => {
-//   describe("getDaysSinceLastMonday()", () => {
-//     it("Write Your Test Expectation Here", () => {
+// describe("Ticket functions", function() {
+//   describe("getDaysSinceLastMonday()", function() {
+//     it("Write Your Test Expectation Here", function() {
 //       // Arrange.
 //       let bool = false;
 //       // Act.
