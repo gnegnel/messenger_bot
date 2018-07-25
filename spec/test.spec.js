@@ -85,18 +85,25 @@ describe("Error handling", function() {
 //
 // ================================================================================================== //
 
-// describe("User functions", function() {
-//   describe("getDaysSinceLastMonday()", function() {
-//     it("Write Your Test Expectation Here", function() {
-//       // Arrange.
-//       let simpleUser;
-//       // Act.
-//       const result = getOpposite(bool);
-//       // Assert.
-//       expect(result).toBe(true);
-//     });
-//   });
-// });
+describe("User functions", function() {
+  describe("addTicket", function() {
+    it("adds a ticket to the user's array of ticket", function() {
+      // Arrange
+      let ticket = new Ticket({
+        timestamp: new Date(),
+        url: "www.example.com/image.jpg"
+      });
+      let user = new User({
+        id:12345678,
+        gender: "male"
+      });
+      // Act
+      user.addTicket({ticket: ticket});
+      // Assert
+      expect(ticket).toBe(user.tickets[0]);
+    });
+  });
+});
 
 // ================================================================================================== //
 //    ___
@@ -107,14 +114,15 @@ describe("Error handling", function() {
 // ================================================================================================== //
 
 // describe("Game functions", function() {
-//   describe("getDaysSinceLastMonday()", function() {
-//     it("Write Your Test Expectation Here", function() {
+//   describe("checkLevelUp()", function() {
+//     it("returns true if the parameters mean a level up", function() {
 //       // Arrange.
-//       let bool = false;
+//       let level = 4;
+//       let weekStreak = 3:
 //       // Act.
-//       const result = getOpposite(bool);
-//       // Assert.
-//       expect(result).toBe(true);
+
+//       // Assert. 
+
 //     });
 //   });
 // });
