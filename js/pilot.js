@@ -149,7 +149,9 @@ class User {
    * @param {Ticket} ticket
    * @description - Adds a ticket to the user’s array of tickets.
    */
-  addTickets({ ticket }) {}
+  addTickets({ ticket }) {
+    this.tickets.push(ticket);
+  }
 
   // ------------------------------------------------------------------------------------------------ //
   /**
@@ -224,7 +226,10 @@ class Ticket {
    * @param {Date} timestamp - The time and date that the ticket was sent.
    * @param {String} url - Url link to the ticket's location in Facebook's servers.
    */
-  constructor({ timestamp, url }) {}
+  constructor({ timestamp, url }) {
+    this.timestamp = timestamp;
+    this.url = url;
+  }
 }
 
 // ################################################################################################## //
