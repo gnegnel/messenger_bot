@@ -6,12 +6,14 @@
 //
 // ################################################################################################## //
 
+// -------------------------------------------------------------------------------------------------- //
 // Constant Variables
-// ================================================================================================== //
+// -------------------------------------------------------------------------------------------------- //
 const TODAY = new Date();
 
+// -------------------------------------------------------------------------------------------------- //
 // Utility Functions
-// ================================================================================================== //
+// -------------------------------------------------------------------------------------------------- //
 /**
  * @name getDaysSinceLastMonday
  * @param  {Date} date - The date that will be used for the calculation
@@ -28,25 +30,89 @@ function getDaysSinceLastMonday({ date }) {
   return calculationResult;
 }
 
+// -------------------------------------------------------------------------------------------------- //
 // Error Handling
-// ================================================================================================== //
+// -------------------------------------------------------------------------------------------------- //
+/**
+ * @name findType
+ * @param {Any} value - Value that wants to find it type.
+ * @returns {String} - Correct and cleaned data type of the input value.
+ * @description - Given a certain input value, the function strictly checks for its correct data type.
+ */
 function findType(value) {
   var type = "unknown";
   if (typeof value === "string" || value instanceof String) {
     // String
     type = "string";
   } else if (typeof value === "number" && isFinite(value)) {
-    //
+    // Number
     type = "number";
   } else if (
     value &&
     typeof value === "object" &&
     value.constructor === Array
   ) {
+    // Array
     type = "array";
+  } else if (typeof value === "function") {
+    // Function
+    type = "function";
   } else if (value === null) {
+    // Null
+    type = "null";
   } else if (typeof value === "undefined") {
+    // Undefined
+    type = "undefined";
+  } else if (typeof value === "boolean") {
+    // Boolean
+    type = "boolean";
+  } else if (
+    value &&
+    typeof value === "object" &&
+    value.constructor === RegExp
+  ) {
+    // Regular Expression
+    type = "regexp";
+  } else if (value instanceof Error && typeof value.message !== "undefined") {
+    // Error
+    type = "error";
+  } else if (value instanceof Date) {
+    // Error
+    if (value.getTime() === value.getTime()) {
+      type = "date";
+    }
+  } else {
+    // Unknown
+    type = "unknown";
   }
+  return type;
+}
+
+/**
+ * @name validate
+ * @param  {Array[Any]} values - Values to validate.
+ * @param  {Array[String]} types - Data type names that have to match with the value's data types.
+ * @returns {Boolean} - True if all values and data types match.
+ * @description - Given an array of values and an array of data types, determine if they match in every case. If they don't, return false.
+ */
+function validate({ values, types }) {
+  var result = true;
+
+  if (types.length !== values.length) {
+    result = false;
+  } else {
+    for (let i = 0; i < values.length; i++) {
+      if (findType(values[i]) !== types[i]) {
+        result = false;
+      }
+    }
+  }
+
+  if (!result) {
+    // Throw Error.
+  }
+
+  return result;
 }
 
 // ================================================================================================== //
