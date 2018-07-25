@@ -145,11 +145,11 @@ class User {
 
   // ------------------------------------------------------------------------------------------------ //
   /**
-   * @name addTickets
+   * @name addTicket
    * @param {Ticket} ticket
    * @description - Adds a ticket to the user’s array of tickets.
    */
-  addTickets({ ticket }) {
+  addTicket({ ticket }) {
     this.tickets.push(ticket);
   }
 
